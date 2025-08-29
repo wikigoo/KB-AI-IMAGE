@@ -1,9 +1,121 @@
----
+# ——— Site Basics ———
 title: "KB-AI-IMAGE"
-type: guide        # guide | Prompet library | template | Prompt Generator | Styles
-summary: "..."
-tags: [ ... ]
-last_updated: 2025-08-29
-see_also:
-  - /libraries/...
----
+tagline: "AI Image Creation Library"
+description: "Guides, prompts, and examples of AI image creation."
+lang: fa
+timezone: Asia/Tehran
+
+# URLs — Fill in if hosted on GitHub Pages
+url: "https://wikigoo.github.io" # Base domain (without trailing slash)
+baseurl: "/KB-AI-IMAGE" # If in root: "". For Pages projects, it is usually the name of the repo.
+
+# ——— Output structure and links ———
+permalink: /:categories/:title/
+collections:
+posts:
+output: true
+docs:
+output: true
+permalink: /docs/:path/
+defaults:
+- scope: { path: "", type: "posts" }
+values:
+layout: post
+toc: true
+toc_sticky: true
+comments: false
+- scope: { path: "", type: "docs" }
+values:
+layout: doc
+nav: true
+
+# ——— Theme and appearance ———
+# Choose one:
+# remote_theme: pages-themes/cayman@v0.2.0
+remote_theme: pages-themes/minimal@v0.2.0
+
+# ——— Markdown and rendering ———
+markdown: kramdown
+kramdown:
+input: GFM
+hard_wrap: false
+syntax_highlighter_opts:
+line_numbers: false
+
+# ——— Allowed plugins on GitHub Pages ———
+plugins:
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-feed
+- jemoji
+- jekyll-paginate
+
+paginate: 10
+paginate_path: "/page:num/"
+
+# ——— SEO and Social Networks ———
+author:
+name: "Wiki"
+email: "wikigoo58@gmail.com"
+social:
+github: "wikigoo"
+twitter: null
+linkedin: null
+logo: /assets/img/logo.png
+favicon: /assets/img/favicon.png
+
+# for jekyll-seo-tag
+seo:
+type: "Website"
+name: "KB-AI-IMAGE"
+image: /assets/img/social-card.png
+
+# ——— Sitemap/Feed ———
+feed:
+path: feed.xml
+categories:
+- updates
+sitemap:
+exclude:
+- assets/vendor
+include_posts: true
+
+# ——— Paths ———
+include:
+- _pages
+- _redirects
+exclude:
+- node_modules
+- vendor
+- README.md
+- package.json
+- package-lock.json
+- Gemfile
+- Gemfile.lock
+- scripts
+- .github
+- .vscode
+
+# ——— Stable Builds ———
+safe: true
+lsi: false
+future: false
+strict_front_matter: false
+
+# ——— Cache and Performance ———
+sass:
+style: compressed
+
+# ——— Custom Project Variables ———
+ai:
+models:
+- "Stable Diffusion"
+- "SDXL"
+- "Flux"
+default_ar: "16:9"
+default_res: "1024x1024"
+
+# ——— Clean Internal Links ———
+relative_links:
+enabled: true
+collections: true
