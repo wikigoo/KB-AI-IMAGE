@@ -1,121 +1,78 @@
-# ——— Site Basics ———
+# --- Site basics ---
 title: "KB-AI-IMAGE"
-tagline: "AI Image Creation Library"
-description: "Guides, prompts, and examples of AI image creation."
+description: "کتابخانه‌ی ساخت تصویر با هوش مصنوعی: گایدها، پرامپت‌ها، تمپلیت‌ها و استایل‌ها."
 lang: fa
 timezone: Asia/Tehran
 
-# URLs — Fill in if hosted on GitHub Pages
-url: "https://wikigoo.github.io" # Base domain (without trailing slash)
-baseurl: "/KB-AI-IMAGE" # If in root: "". For Pages projects, it is usually the name of the repo.
+# اگر ریپو روی GitHub Pagesِ پروژه‌ایه این دو تا رو دقیق کن:
+url: "https://wikigoo.github.io"     # دامنه‌ی اصلی (بدون اسلش آخر)
+baseurl: "/KB-AI-IMAGE"              # اگر در ریشه است: ""
 
-# ——— Output structure and links ———
-permalink: /:categories/:title/
-collections:
-posts:
-output: true
-docs:
-output: true
-permalink: /docs/:path/
-defaults:
-- scope: { path: "", type: "posts" }
-values:
-layout: post
-toc: true
-toc_sticky: true
-comments: false
-- scope: { path: "", type: "docs" }
-values:
-layout: doc
-nav: true
-
-# ——— Theme and appearance ———
-# Choose one:
-# remote_theme: pages-themes/cayman@v0.2.0
+# --- Theme & Markdown ---
 remote_theme: pages-themes/minimal@v0.2.0
-
-# ——— Markdown and rendering ———
 markdown: kramdown
 kramdown:
-input: GFM
-hard_wrap: false
-syntax_highlighter_opts:
-line_numbers: false
+  input: GFM
 
-# ——— Allowed plugins on GitHub Pages ———
+# --- Plugins (whitelist صفحات گیت‌هاب) ---
 plugins:
-- jekyll-seo-tag
-- jekyll-sitemap
-- jekyll-feed
-- jemoji
-- jekyll-paginate
-
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jemoji
+  - jekyll-paginate
 paginate: 10
 paginate_path: "/page:num/"
 
-# ——— SEO and Social Networks ———
+# --- Collections (متناسب با پروژه‌ی تو) ---
+collections:
+  guides:
+    output: true
+    permalink: /guides/:path/
+  prompts:
+    output: true
+    permalink: /prompts/:path/
+  templates:
+    output: true
+    permalink: /templates/:path/
+  styles:
+    output: true
+    permalink: /styles/:path/
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: post, toc: true }
+  - scope: { path: "", type: "guides" }
+    values: { layout: doc }
+  - scope: { path: "", type: "prompts" }
+    values: { layout: doc }
+  - scope: { path: "", type: "templates" }
+    values: { layout: doc }
+  - scope: { path: "", type: "styles" }
+    values: { layout: doc }
+
+# --- Assets & performance ---
+sass: { style: compressed }
+exclude:
+  - node_modules
+  - vendor
+  - README.md
+  - .github
+  - .vscode
+
+# --- Social/SEO (اختیاری) ---
 author:
-name: "Wiki"
-email: "wikigoo58@gmail.com"
-social:
-github: "wikigoo"
-twitter: null
-linkedin: null
+  name: "Wiki"
+  email: "wikigoo58@gmail.com"
 logo: /assets/img/logo.png
 favicon: /assets/img/favicon.png
-
-# for jekyll-seo-tag
 seo:
-type: "Website"
-name: "KB-AI-IMAGE"
-image: /assets/img/social-card.png
+  type: "Website"
+  name: "KB-AI-IMAGE"
 
-# ——— Sitemap/Feed ———
-feed:
-path: feed.xml
-categories:
-- updates
-sitemap:
-exclude:
-- assets/vendor
-include_posts: true
-
-# ——— Paths ———
-include:
-- _pages
-- _redirects
-exclude:
-- node_modules
-- vendor
-- README.md
-- package.json
-- package-lock.json
-- Gemfile
-- Gemfile.lock
-- scripts
-- .github
-- .vscode
-
-# ——— Stable Builds ———
-safe: true
-lsi: false
-future: false
-strict_front_matter: false
-
-# ——— Cache and Performance ———
-sass:
-style: compressed
-
-# ——— Custom Project Variables ———
-ai:
-models:
-- "Stable Diffusion"
-- "SDXL"
-- "Flux"
-default_ar: "16:9"
-default_res: "1024x1024"
-
-# ——— Clean Internal Links ———
-relative_links:
-enabled: true
-collections: true
+# --- Project custom vars (برای استفاده در تم/لی‌اوت) ---
+kb:
+  type: "guide | prompt-library | template | generator | styles"
+  last_updated: "2025-08-29"
+  see_also:
+    - /libraries/...
