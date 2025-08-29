@@ -1,0 +1,9 @@
+---
+title: "KB-AI-IMAGE"
+type: guide        # guide | Prompet library | template | Prompt Generator | Styles
+summary: "..."
+tags: [ ... ]
+last_updated: 2025-08-29
+see_also:
+  - /libraries/...
+---
